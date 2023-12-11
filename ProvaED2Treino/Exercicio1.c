@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #define tamanhoDoEspaco 10
+// arvora ABB arvore binaria de busca
 typedef struct nodo
 {
     int info;

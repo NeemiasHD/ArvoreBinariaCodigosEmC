@@ -3,6 +3,9 @@
 #include <ctype.h>
 #include <stdbool.h>
 #define tamanhoDoEspaco 10
+
+int NumRotacoes = 0;//serve pra calcular o numero de rotações
+
 typedef struct nodo
 {
     int info;
@@ -49,6 +52,7 @@ int fatorBalanceamento(NO *n)
 // Função para rotacionar a subárvore à direita
 NO *rotacaoDireita(NO *y)
 {
+    NumRotacoes++;
     NO *x = y->esq;
     NO *T2 = x->dir;
 
@@ -65,6 +69,7 @@ NO *rotacaoDireita(NO *y)
 // Função para rotacionar a subárvore à esquerda
 NO *rotacaoEsquerda(NO *x)
 {
+    NumRotacoes++;
     NO *y = x->dir;
     NO *T2 = y->esq;
 
@@ -237,8 +242,9 @@ int main()
 
     do
     {
-        system("pause");
+
         system("cls");
+        printf("\tNumero de Rotacoes: %d\n\n", NumRotacoes);
         imprimir(arvore, tamanhoDoEspaco);
         exibirMenu();
         scanf("%d", &opcao);
@@ -282,6 +288,7 @@ int main()
         default:
             printf("\nOpcao invalida. Tente novamente.\n");
         }
+        system("pause");
 
     } while (opcao != 5);
 
